@@ -120,4 +120,7 @@ def main():
         playlist_id = get_playlist_id()
         remove_duplicates(youtube, playlist_id)
     except Exception as e:
-        logger.error(f"An error occurred
+        logger.error(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
