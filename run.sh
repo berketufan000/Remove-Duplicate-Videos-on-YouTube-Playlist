@@ -1,6 +1,6 @@
-
-#!/bin/bash
-echo "Installing requirements..."
-pip install -r requirements.txt
-echo "Starting the script..."
-python3 script.py
+@echo off
+echo Starting the script...
+pip install -r requirements.txt > NUL 2>&1
+python script.py
+echo Script finished.
+pause
