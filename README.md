@@ -1,4 +1,4 @@
-# Remove Duplicate Videos on YouTube Playlist
+# Remove Duplicate Videos on your YouTube Playlist
 
 This Python script identifies and removes duplicate videos from a specified YouTube playlist using the YouTube Data API. It ensures that the playlist remains clean and organized by eliminating redundant entries from **your own playlist**.
 
