@@ -40,12 +40,20 @@ def authenticate():
     API_NAME = "youtube"
     API_VERSION = "v3"
     SCOPES = ["https://www.googleapis.com/auth/youtube.force-ssl"]
-
-    flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-    credentials = flow.run_local_server(port=0)
-
-    youtube = build(API_NAME, API_VERSION, credentials=credentials)
-    return youtube
+    
+    # Dosya kontrolü
+    if not os.path.exists(CLIENT_SECRET_FILE):
+        logger.error(f"The file '{CLIENT_SECRET_FILE}' is missing. Please add the file to the directory.")
+        raise FileNotFoundError(f"The file '{CLIENT_SECRET_FILE}' is missing. Please add the file to the directory.")
+    
+    try:
+        flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
+        credentials = flow.run_local_server(port=0)
+        youtube = build(API_NAME, API_VERSION, credentials=credentials)
+        return youtube
+    except Exception as e:
+        logger.error(f"An error occurred during authentication: {e}")
+        raise
 
 # Oynatma listesindeki tüm videoları almak
 def get_playlist_items(youtube, playlist_id):
@@ -107,9 +115,9 @@ def remove_duplicates(youtube, playlist_id):
             logger.error(f"An unexpected error occurred: {error}")
 
 def main():
-    youtube = authenticate()
-    playlist_id = get_playlist_id()
-    remove_duplicates(youtube, playlist_id)
-
-if __name__ == "__main__":
-    main()
+    try:
+        youtube = authenticate()
+        playlist_id = get_playlist_id()
+        remove_duplicates(youtube, playlist_id)
+    except Exception as e:
+        logger.error(f"An error occurred
