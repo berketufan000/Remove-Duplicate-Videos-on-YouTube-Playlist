@@ -22,41 +22,27 @@ Before using this script, ensure you have the following:
 
 ---
 
-## Installation
+## Running the Script
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/Remove-Duplicate-Videos-on-YouTube-Playlist.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Remove-Duplicate-Videos-on-YouTube-Playlist
-   ```
-3. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Windows:
+
+1. Ensure Python is installed on your system.
+2. Place your `client_secret.json` file in the project directory.
+3. Double-click `run.bat` to start the script.
+
+### Linux/MacOS:
+
+1. Ensure Python is installed on your system.
+2. Place your `client_secret.json` file in the project directory.
+3. Run `run.sh` in your terminal to start the script.
 
 ---
 
-## Usage
+## Notes:
 
-1. Place your `client_secret.json` file in the project directory.
-2. Run the script:
-   ```bash
-   python script.py
-   ```
-3. Follow the on-screen instructions to authenticate with your Google account.
-4. Provide the **playlist ID** when prompted.  
-   - You can find the playlist ID in the URL of your playlist.  
-     Example URL:  
-     ```
-     https://www.youtube.com/playlist?list=PLabcd1234Efgh5678
-     ```
-     The playlist ID is the part after `list=`:  
-     ```
-     PLabcd1234Efgh5678
-     ```
+- The `client_secret.json` file must be in the same directory as the script for authentication.
+- Follow the prompts to authenticate via your browser.
+- Provide the **playlist ID** when prompted.
 
 ---
 
